@@ -13,6 +13,4 @@ import java.util.List;
 @Builder
 public class UserProfileDTO {
     private User user;
-    private List<Friend> friends;
-    private List<Post> posts;
 }

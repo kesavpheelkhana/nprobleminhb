@@ -22,4 +22,17 @@ public class CustomFriendRepositoryImpl implements CustomFriendRepository {
                                 .getResultList();
         return friends;
     }
+
+    /**
+     * Deprecated
+     * @param userid
+     * @return
+     */
+    public List<Friend> findById(int userid){
+        String jpql = "SELECT friend FROM Friend friend WHERE friend.user.pk = :userId";
+        List<Friend> friends = em.createQuery(jpql,Friend.class)
+                .setParameter("userId",userid)
+                .getResultList();
+        return friends;
+    }
 }

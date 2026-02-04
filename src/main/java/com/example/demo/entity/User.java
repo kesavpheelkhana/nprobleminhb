@@ -23,17 +23,23 @@ public class User {
 
     private String username;
 
-    // One User to Many Posts (Bidirectional)
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private Set<Friend> friends = new HashSet<>();
+//     One User to Many friends (Bidirectional)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Friend> friends = new HashSet<>();
+
+    //     One User to Many posts (Bidirectional)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Post> posts = new HashSet<>();
 
     public User(){
 
     }
 
-    public User(Long pk,String name){
+    public User(Long pk,String name,Set<Friend> friends,Set<Post> posts){
         this.pk = pk;
         this.username = name;
+        this.friends = friends;
+        this.posts = posts;
     }
 
 

@@ -17,8 +17,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        show_sql: ${DB_SHOW_SQL:false}
-        format_sql: ${DB_FORMAT_SQL:false}
+        show_sql: ${DB_SHOW_SQL:true}
+        format_sql: ${DB_FORMAT_SQL:true}
         globally_quoted_identifiers: true
         enable_lazy_load_no_trans: true
     open-in-view: false
