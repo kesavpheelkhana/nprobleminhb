@@ -11,8 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @DiscriminatorValue("0")
-public class FtpConfigEntity extends AbstractConfigEntity<FtpConfigEntity.Credential>
-implements AbstractConfigEntity.ICredential{
+public class FtpConfigEntity extends AbstractConfigEntity<FtpConfigEntity.Credential> {
 
     @Builder
     public FtpConfigEntity(int clientId, String name, LocalDateTime expirationDate, FtpConfigEntity.Credential credential) {

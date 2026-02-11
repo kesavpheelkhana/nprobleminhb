@@ -66,8 +66,5 @@ public abstract class AbstractConfigEntity<T extends AbstractConfigEntity.ICrede
             include = JsonTypeInfo.As.PROPERTY,
             property = "@class"
     )
-//    @JsonSubTypes({
-//            @JsonSubTypes.Type(value = FtpConfigEntity.class)
-//    })
     public interface ICredential {}
 }
