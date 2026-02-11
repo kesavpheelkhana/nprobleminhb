@@ -20,6 +20,7 @@ public class ConfigService {
     }
 
     public void createFtpCredential(int clientId, ConfigCreateRequest<FtpConfigEntity.Credential> request) {
+        System.out.println("--------- creating ftp credentials");
         FtpConfigEntity entity = new FtpConfigEntity(clientId,request.getName(),request.getExpireDate(),request.getCredential());
         configRepository.save(entity);
     }

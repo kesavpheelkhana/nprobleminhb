@@ -21,6 +21,8 @@ public class UploadDelegateService {
 
     public void upload(int clientId, long id, File file) {
         AbstractConfigEntity<?> config = configService.getConfig(clientId, id);
+       System.out.println("config name from db "+config.getName());
+        System.out.println("config type from db "+config.getType().name());
         IUploadClient client = getUploadClient(config.getType());
         client.upload(config.getCredential(), file);
     }

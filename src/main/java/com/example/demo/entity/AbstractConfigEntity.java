@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import com.example.demo.entity.enumerator.UploadType;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -52,8 +53,21 @@ public abstract class AbstractConfigEntity<T extends AbstractConfigEntity.ICrede
     @Column(name = "update_date")
     private LocalDateTime updateDate;
 
-    public AbstractConfigEntity(int clientId, UploadType uploadType, String name, LocalDateTime expirationDate, ICredential credential) {
+    public AbstractConfigEntity(int clientId, UploadType type, String name, LocalDateTime expirationDate, T credential) {
+        this.clientId = clientId;
+        this.type = type;
+        this.name = name;
+        this.expirationDate = expirationDate;
+        this.credential = credential;
     }
 
+    @JsonTypeInfo(
+            use = JsonTypeInfo.Id.CLASS,
+            include = JsonTypeInfo.As.PROPERTY,
+            property = "@class"
+    )
+//    @JsonSubTypes({
+//            @JsonSubTypes.Type(value = FtpConfigEntity.class)
+//    })
     public interface ICredential {}
 }
